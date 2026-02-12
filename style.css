@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+input {
+  all: unset;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.calculator {
+  min-width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: #ddd;
+  padding: 10px 10px 10px;
+  border-radius: 10px;
+}
+
+.screen {
+  flex: 1;
+  font-size: 2.3em;
+  width: 100%;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.screen > div {
+  display: flex;
+  align-items: end;
+  gap: 7px;
+}
+
+.input,
+.output {
+  height: 75px;
+  width: 100%;
+  text-align: right;
+  color: #1f255a;
+  cursor: text;
+}
+
+.input {
+  border-right: 2px solid #7c84e0;
+  animation: blink 1s infinite step-end;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  padding: 2px 7px;
+  font-size: 0.7em;
+  height: 100%;
+  display: flex;
+  background-color: #aec8ff;
+  color: #1f255a;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+  user-select: none;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    border-right-color: #7c84e0;
+  }
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 10px;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.button {
+  padding: 10px;
+  background-color: #aec8ff;
+  width: 70px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: #1f255a;
+  font-weight: bolder;
+  font-size: 2em;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.button:hover {
+  background-color: #7c84e0;
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+.button:disabled {
+  background-color: #aaa;
+  color: white;
+  cursor: auto;
+}
+
+.alert {
+  background-color: #1f255a;
+  color: white;
+  padding: 12px;
+  border-radius: 24px;
+  position: absolute;
+  top: 69px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.2s;
+  text-align: center;
+  display: none;
+}
